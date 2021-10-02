@@ -29,7 +29,7 @@ Flyway must run this scripts automatically:
 # src/main/resources/db/migrations/v2_insert.sql
 ```
 It's recommended to read this page before jumping to another part of project
-You can find additional and detailed comments in this format:
+You can find additional and detailed comments in code in this format:
 ```java
 /**
  * Sectors service. It contains only 1 method get sector tree(where each node contains info about sector value and description and
@@ -70,7 +70,7 @@ There are two main endpoints:
 Sectors can be nested. For example Manufacturing have nested sectors like: construction, electronics and so on.
 That is why I decided to store sector's relation between each other in a database.
 If sector do not have parent(root sector(manufacturing, other, service)) then in a database <code>sector.sector_value = sector.sector_parent_value</code>.
-If sector has parent sector(owning) then <code>sector.sector_value_parent = parent.sector_value</code>
+If sector has parent sector(owning) then <code>sector.sector_parent_value = parent.sector_value</code>
 #### This rule must be considered before adding new sectors
 Each sector also stores order integer value that define ordering between sibling sectors.
 
