@@ -18,6 +18,9 @@ docker-compose up -d
 mvn clean install
 java -jar target/categories-0.0.1-SNAPSHOT.jar
 ```
+4. Open browser [here](http://localhost:11500)
+
+
 All configurations for spring application could be found in application.properties file.
 
 Flyway must run this scripts automatically:
