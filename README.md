@@ -78,6 +78,7 @@ In order to build sectors trees and convert them to select tag I'm using dfs app
 
 
 ### Tricky moments:
+- If user do not accept agreement then it's impossible to send form. That is why all users that are sended form successfully have accepted agreement and I'm not gonna store user's agreement value in database.
 - Which logic must be implemented(UI side) when user selects non leaf sector? For example if I choose Food and Beverage, does it mean I have chosen all It's children automatically?
 ##### For current implementation I do not differ from choosing non leaf and leaf sectors.
 
