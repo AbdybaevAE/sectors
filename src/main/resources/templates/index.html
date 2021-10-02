@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="stylesheet" data-th-href="@{/css/bootstrap.min.css}">
+    <script data-th-src="@{/js/jquery.min.js}"></script>
+    <script data-th-src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div class="col-3">
+    <h5>Application form:</h5>
+</div>
+<form id="sectorsForm" method="post" data-th-action="@{/sectors}" data-th-object="${userData}">
+    <div class="form-group col-3">
+        <label for="name">Your name:</label>
+        <input class="form-control" id="name" name="name" type="text" data-th-value="${name}" required data-th-field="*{firstName}">
+    </div>
+    <div class="form-group col-3">
+        <label for="sectors">Sectors you are currently involved in:</label>
+        <select class="form-control" id="sectors" required name="sectors" multiple size="10" data-th-field="*{sectors}">
+            <option data-th-each="sector: ${sectors}" data-th-utext="${sector.description}" data-th-value="${sector.value}"></option>
+        </select>
+    </div>
+    <div class="form-group form-check">
+        <label class="form-check-label" for="flexCheckChecked">
+            Agree to terms:
+        </label>
+        <input id="flexCheckChecked" name="agreement" type="checkbox" data-th-checked="*{agreement}" required>
+    </div>
+    <div class="form-group col-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $("#sectorsForm").validate({
+            rules: {
+                'sectors': {
+                    minlength: 1
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
